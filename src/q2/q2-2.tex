@@ -1,0 +1,39 @@
+\subsection{Уравнение неразрывности. Уравнение Эйлера и Навье-Стокса. Массовые и поверхностные силы.}
+Массовые силы $F_\text{масс}$ пропорциональны $dm=\rho dV$.
+К ним относятся: силы притяжения (Земли, Луны, Солнца и т.д.) и силы инерции (Кориолиса, центробежная).
+Приложены к центру масс элементарного объёма $dV$.
+
+Поверхностные силы $F_\text{поверх}=\sum_{j}\frac{\partial\tau_{ij}}{\partial x_{j}}dV$, где $\tau_{ij}$ -- тензор напряжений.
+Приложены к граням элементарного объёма $dV$.
+
+Исходя из второго закона Ньютона $m\vec{a}=\sum\vec{F}_\text{масс}+\sum\vec{F}_\text{поверх}$ получаем уравнение движения вязкой жидкости (уравнение Навье-Стокса) \cite{Nosov2019-6}:
+\begin{align}\label{eq-2-2-1}
+\begin{split}
+\frac{d\vec{v}}{dt}
+&=
+\frac{\partial\vec{v}}{\partial t}+\left(\vec{v}\cdot\vec{\nabla}\right)\vec{v}
+\\
+&=
+\underbrace{\vec{g}+2\left[\vec{v}\times\vec{\Omega}\right]}_\text{массовые силы}
++\underbrace{\frac{1}{\rho}\sum_{j}\frac{\partial\tau_{ij}}{\partial x_{j}}}_\text{поверхностные силы}
+\\
+&=
+\underbrace{\vec{g}}_\text{сила тяжести}
++\underbrace{2\left[\vec{v}\times\vec{\Omega}\right]}_\text{сила Кориолиса}
+-\underbrace{\frac{\vec{\nabla}p}{\rho}}_\text{сила градиента давления}
+\\
+&+
+\underbrace{\nu\Delta\vec{v}+\left(\zeta+\frac{\nu}{3}\right)\vec{\nabla}\left(\vec{\nabla}\cdot\vec{v}\right)}_\text{сила вязкого трения}
+\end{split}
+\end{align}
+где $\nu$ -- коэффициент кинематической вязкости, а коэффициент $\zeta$ часто называют второй вязкостью.
+
+В случае отсутствия вязкости уравнение Навье-Стокса переходит в уравнение Эйлера (уравнение движения идеальной жидкости):
+\begin{equation}\label{eq-2-2-2}
+\frac{\partial\vec{v}}{\partial t}+\left(\vec{v}\cdot\vec{\nabla}\right)\vec{v}=\vec{g}+2\left[\vec{v}\times\vec{\Omega}\right]-\frac{\vec{\nabla}p}{\rho}
+\end{equation}
+
+Векторное уравнение движения имеет 5 неизвестных величин (три компоненты скорости $\vec{v}$, давление $p$ и плотность $\rho$), поэтому для его замыкания используются уравнение состояния $\rho=\rho(p)$ и уравнение неразрывности (закон сохранения массы) для сплошной среды:
+\begin{equation}\label{eq-2-2-3}
+\frac{\partial\rho}{\partial t}+\vec{\nabla}\cdot(\rho\vec{v})=0
+\end{equation}

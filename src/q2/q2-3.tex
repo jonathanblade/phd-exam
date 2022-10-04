@@ -1,0 +1,33 @@
+\subsection{Подходы к упрощению уравнений гидродинамики. Потенциальное и вихревое движение. Гидростатика. Уравнение Бернулли.}
+Гидродинамические приближения \cite{Nosov2019-6}:
+\begin{enumerate}
+\item Среда обладает постоянной плотностью, т.е. $\rho=\rho_0=const$.
+\item Течение стационарно, т.е. $\frac{\partial}{\partial t}=0$.
+\item Жидкость идеальная (невязкая), т.е. пренебрежение силой вязкого трения.
+\item Линейное приближение (в случае малости скорости), т.е. пренебрежение членом $\left(\vec{v}\cdot\vec{\nabla}\right)\vec{v}$ в (\ref{eq-2-2-1}).
+\end{enumerate}
+Геофизические приближения \cite{Nosov2019-6}:
+\begin{enumerate}
+\item Гидростатическое приближение (по вертикали):
+\begin{equation}\label{eq-2-3-1}
+-\frac{\vec{\nabla}p}{\rho}+\vec{g}=0, \vec{\nabla}=\vec{k}\frac{\partial}{\partial z}
+\end{equation}
+\item Геострофическое приближение (по горизонтали):
+\begin{equation}\label{eq-2-3-2}
+-\frac{\vec{\nabla}p}{\rho}+2\left[\vec{v}\times\vec{\Omega}\right]=0, \vec{\nabla}=\vec{i}\frac{\partial}{\partial x}+\vec{j}\frac{\partial}{\partial y}
+\end{equation}
+\end{enumerate}
+
+Все движения жидкостей подразделяются на потенциальные и вихревые.
+Если относительная завихрeнность $\vec{\xi}=\left[\vec{\nabla}\times\vec{v}\right]=0$, то движение является потенциальным, в противном случае -- вихревым.
+
+Рассмотрим стационарное течение идеальной жидкости в поле силы тяжести, но без действия силы Кориолиса.
+С учётом соотношения Максвелла $dH=Tds+Vdp=\frac{dp}{\rho}$ (где $H \left[\frac{\text{Дж}}{\text{кг}}\right]$ -- энтальпия) и формулой из векторного анализа $\frac{1}{2}\vec{\nabla}v^2=\left[\vec{v}\times\left[\vec{\nabla}\times\vec{v}\right]\right]+\left(\vec{v}\cdot\vec{\nabla}\right)\vec{v}$ уравнение Эйлера (\ref{eq-2-2-2}) переходит в уравнение:
+\begin{equation}\label{eq-2-3-3}
+\frac{1}{2}\vec{\nabla}v^2 -\left[\vec{v}\times\left[\vec{\nabla}\times\vec{v}\right]\right]=\vec{g}-\vec{\nabla}H
+\end{equation}
+
+Проецируя уравнение (\ref{eq-2-3-3}) на направление вдоль линии тока жидкости $l$ (т.е. рассматривая потенциальное движение), получаем уравнение Бернулли \cite{Ландау-Лившиц-1986}:
+\begin{equation}\label{eq-2-3-4}
+\frac{\partial}{\partial l}\left(\frac{v^2}{2}+H+gz\right)=0\Rightarrow\frac{v^2}{2}+H+gz=const
+\end{equation}

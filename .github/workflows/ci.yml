@@ -1,0 +1,62 @@
+name: CI
+
+on: workflow_dispatch
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Build pdf
+        uses: xu-cheng/latex-action@v2
+        with:
+          working_directory: src
+          root_file: main.tex
+
+      - name: Save pdf
+        uses: actions/upload-artifact@v3
+        with:
+          name: pdf
+          path: src/main.pdf
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v3
+
+      - name: Variables
+        id: vars
+        run: |
+          echo "::set-output name=date::$(date +'%d-%m-%Y')"
+          echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
+
+      - name: Download pdf
+        uses: actions/download-artifact@v3
+        with:
+          name: pdf
+          path: .
+
+      - name: Create release
+        id: create_release
+        uses: actions/create-release@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: ${{ steps.vars.outputs.date }}-${{ steps.vars.outputs.sha8 }}
+          release_name: phd-exam (${{ steps.vars.outputs.date }})
+          body: |
+            ${{ steps.vars.outputs.date }}-${{ steps.vars.outputs.sha8 }}
+
+      - name: Upload pdf
+        uses: actions/upload-release-asset@v1
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          asset_path: main.pdf
+          asset_name: ${{ steps.vars.outputs.date }}-${{ steps.vars.outputs.sha8 }}.pdf
+          asset_content_type: application/pdf

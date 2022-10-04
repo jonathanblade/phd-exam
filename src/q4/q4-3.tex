@@ -1,0 +1,37 @@
+\subsection{Уравнения Рейнольдса. Проблема замыканий уравнений Рейнольдса.}\label{q4-3}
+Предположим, что гидродинамические и термодинамические величины представляют собой сумму среднего поля $\langle\rangle$ и пульсаций *:
+\begin{equation}
+\begin{gathered}
+\vec{v}=\langle\vec{v}\rangle+\vec{v}_{*}
+\\
+p=\langle p\rangle+p_{*}
+\\
+T=\langle T\rangle+T_{*}
+\end{gathered}
+\end{equation}
+Используя правило осреднения Рейнольдса:
+\begin{equation}
+\langle u_i u_j\rangle=\langle u_i\rangle\langle u_j\rangle+\langle u_i^* u_j^*\rangle
+\end{equation}
+можно получить систему \textit{уравнений Рейнольдса} в тензорном виде \cite{Носов-2013}:
+\begin{equation}\label{eq-4-3-3}
+\begin{gathered}
+\underbrace{\frac{\partial \langle u_i\rangle}{\partial t}+\langle u_j\rangle\frac{\partial \langle u_i\rangle}{\partial x_j}=g_i-\frac{1}{\rho}\frac{\partial \langle p\rangle}{\partial x_i}+\frac{\partial}{\partial x_j}\left(\nu\frac{\partial \langle u_i\rangle}{\partial x_j}-\langle u_i^* u_j^*\rangle\right)}_\text{уравнение движения (Навье-Стокса)}
+\\
+\underbrace{\frac{\partial \langle T\rangle}{\partial t}+\langle u_j\rangle\frac{\partial \langle T\rangle}{\partial x_j}=\frac{\partial}{\partial x_j}\left(\chi\frac{\partial\langle T\rangle}{\partial x_j}-\langle u_j^*T_*\rangle\right)}_\text{уравнение переноса тепла (теплопроводности)}
+\\
+\underbrace{\frac{\partial \langle u_j\rangle}{\partial x_j}=0}_\text{уравнение неразрывности (несжимаемости)}
+\end{gathered}
+\end{equation}
+
+Величина $\tau_{ij}=-\rho\langle u_i^* u_j^*\rangle$  называется \textit{тензором напряжений Рейнольдса}.
+Эти дополнительны напряжения (напряжения Рейнольдса) возникают из-за наличия турбулентных пульсаций.
+Своим происхождением они обязаны нелинейности уравнений гидродинамики.
+
+Система уравнений Рейнольдса (\ref{eq-4-3-3}) является незамкнутой, то есть число входящих в неё уравнений оказывается меньше, чем число неизвестных функций.
+Незамкнутость системы Рейнольдса – это «плата» за переход к средним значениям.
+Чтобы её замкнуть, можно попытаться получить динамические уравнения на напряжения Рейнольдса.
+Для этого используется метод Фридмана-Келлера \cite{Носов-2013}.
+При этом важно иметь в виду, что получаемые в итоге эволюционные (динамические) уравнения для моментов второго порядка будут содержать новые неизвестные функции – моменты третьего порядка.
+В общем случае в эволюционные уравнения для момента порядка N будут всегда входить неизвестные моменты N+1 порядка.
+Тем не менее, составление таких уравнений представляет определенный интерес, т.к. позволяет сделать ряд качественных выводов о свойствах турбулентных течений.

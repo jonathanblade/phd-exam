@@ -1,0 +1,27 @@
+\subsection{Гидростатическое приближение. Теория мелкой воды.}
+Теория мелкой воды строится в приближении гидростатики.
+В случае постоянства плотности ($\rho=\rho_0=const$) из уравнения неразрывности (\ref{eq-2-2-3}) можно получить оценку для компонент скорости:
+\begin{equation}\label{eq-3-4-1}
+\left|v_z\right|\sim\frac{H}{L}\left|v_{xy}\right|
+\end{equation}
+где $H$ -- характерный масштаб движения по вертикале, $L$ -- характерный масштаб движения по горизонтали.
+
+Для крупномасштабных течений в атмосфере и океане выполняется неравенство $L\gg H$ (например, для атмосферы характерный масштаб движения составляют порядка 1000 км, а высота тропосферы 8-18 км), поэтому $|v_{xy}|\gg|v_z|$.
+Это даёт возможность пренебречь частной производной $\frac{\partial v_{z}}{\partial t}$ в уравнении Эйлера (\ref{eq-2-2-2}), что приводит к гидростатическому приближению (\ref{eq-2-3-1}).
+
+Проинтегрируем (\ref{eq-2-3-1}) по $z$:
+\begin{equation}\label{eq-3-4-2}
+\int_z^h\left(-\frac{1}{\rho_0}\frac{\partial p}{\partial z}-g\right)dz=0\Rightarrow p=p_\text{атм}+g\rho_0(\zeta-z)
+\end{equation}
+где $h(x, y, t)=H+\zeta(x, y, t)$ -- поверхность жидкости, т.е. $p(h)=p_\text{атм}=const$.
+
+Подставив давление из (\ref{eq-3-4-2}) в (\ref{eq-2-2-2}), получим уравнение Эйлера в приближении мелкой воды:
+\begin{equation}
+\frac{\partial\vec{v}}{\partial t}+\left(\vec{v}\cdot\vec{\nabla}\right)\vec{v}=\vec{g}+(\vec{i}fv-\vec{j}fu)-g\vec{\nabla}\zeta
+\end{equation}
+где $\vec{\nabla}=\vec{i}\frac{\partial}{\partial x}+\vec{j}\frac{\partial}{\partial y}$, $\vec{v}(x, y, t)=\vec{i}u(x, y, t)+\vec{j}v(x, y, t)$, $f=2\Omega\sin{\phi}$ -- параметр Кориолиса.
+
+Уравнение неразрывности (\ref{eq-2-2-3}) в этом случае имеет вид:
+\begin{equation}
+\frac{\partial \zeta}{\partial t}+H\left(\vec{\nabla}\cdot\vec{v}\right)=0
+\end{equation}

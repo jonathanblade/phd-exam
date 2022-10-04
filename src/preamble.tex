@@ -1,0 +1,45 @@
+% Русский язык
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[russian]{babel}
+
+% Размер страницы и отступы
+\usepackage[a4paper,top=20mm,bottom=20mm,left=20mm,right=20mm]{geometry}
+
+% Межстрочный интервал
+\linespread{1.25}
+
+% Переносы слов
+\usepackage[none]{hyphenat}
+\sloppy
+
+% Ссылки
+\usepackage[colorlinks,allcolors=blue,linktocpage]{hyperref}
+
+% Формулы
+\usepackage{amsmath}
+\usepackage{cases}
+\numberwithin{equation}{subsection}
+
+% Кавычки
+\usepackage{csquotes}
+
+% Поддержка URL
+\usepackage{url}
+
+% Отступ первого абзаца
+\usepackage{indentfirst}
+
+% Картинки
+\usepackage{graphicx}
+\counterwithin{figure}{subsection}
+
+% Footnote
+\usepackage[bottom]{footmisc}
+\interfootnotelinepenalty=10000
+
+% Теоремы
+\usepackage{amsthm}
+\theoremstyle{plain}
+\newtheorem{theorem}{Теорема}
+\newtheorem*{theorem*}{Теорема}
